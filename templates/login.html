@@ -2,9 +2,7 @@
 
 {% block content %}
 
-<h1>Log in to Get It Done!</h1>
-
-<p>If you don't have an account, you may <a href="/register">register</a> for one</p>
+<h1>Login</h1>
 
 <form action="/login" method="post">
 
@@ -12,12 +10,19 @@
 
         <tr>
 
-            <td><label for="email">Email</label></td>
+            <td><label for="Username">Username</label></td>
 
             <td>
 
-                <input name="email" type="email" value="{{ email }}">
-
+                <input id="Username" name="the_name" type="text" value="{{ yourname }}">
+                {% with messages= get_flashed_messages(with_categories=True) %}
+                {% for category,message in messages%}
+                <li class= "{{category}}" >{{user_error}}</li>
+                {% if category == "user_error" %}
+                <span>{{message}}</span>
+                {% endif %} 
+                {% endfor %} 
+                {% endwith %} 
             </td>
 
         </tr>
@@ -28,16 +33,26 @@
 
             <td>
 
-                <input name="password" type="password">
-
+                <input id="password" name="the_password" type="password">
+                {% with messages= get_flashed_messages(with_categories=True) %}
+                {% for category,message in messages%}
+                <li class= "{{category}}" >{{password_er}}</li>
+                {% if category == "password_er" %}
+                <span>{{message}}</span>
+                {% endif %} 
+                {% endfor %} 
+                {% endwith %} 
             </td>
 
         </tr>
 
     </table>
 
-    <input type="submit" value="Login">
+    <input type="submit" value="Submit">
 
 </form>
+<br>
+<p>Don't have an account?<a href="/signup">Create one!</a></p>
+
 
 {% endblock %}

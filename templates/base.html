@@ -15,8 +15,15 @@
 
 <body>
     <!-- >   <div display: inline-block> -->
-    <nav><a href="/blog" style="margin-right: 30px;">Main Blog Page</a> <a href="/newpost">Add a Blog Entry</a></nav>
-
+        <nav><span><a href="/" style="margin-right: 30px;">home</a> 
+    <a href="/blog" style="margin-right: 30px;">all posts</a> 
+    <a href="/newpost" style="margin-right: 30px;">new post</a>
+    </span>
+    
+    <span style="float: right;"><a href="/login" style="margin-right: 30px;">login</a>  
+        <a href="/logout" style="margin-right: 30px;">logout</a>
+    </span>
+    </nav>
     <!-- {% with messages= get_flashed_messages(with_categories=True) %} -->
         <!-- <ul>
          {% for category,message in messages%} -->
